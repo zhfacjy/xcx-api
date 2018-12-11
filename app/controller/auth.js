@@ -18,40 +18,29 @@ class Auth extends Controller {
     });
   }
 
-  async onlogin() {
+  async login() {
     const joi = this.app.Joi;
-    // const config = this.config.site;
+    const config = this.config.site;
     this.ctx.validate(joi.object().keys({
       code: joi.string().required().max(2000),
     }), this.ctx.request.query);
-    const token = await this.jwtSign({
-      openid: 666666,
-    });
-    this.ctx.body = {
-      code: 0,
-      data: {
-        token,
-        session_key: 'wocaonima',
-      },
-    };
-    // const result = await this.ctx.curl(
-    //   `${config.wxlogin}?grant_type=${config.grant_type}&appid=${config.appid}&secret=${config.wxsecret}&js_code=${this.ctx.request.query.code}`,
-    //   { dataType: 'json' });
-    // const data = result.data;
-    // // 生成token
-    // if (data.openid) {
-    //   const token = await this.jwtSign({ openid: data.openid });
-    //   this.ctx.body = {
-    //     code: 0,
-    //     data: { token, session_key: data.session_key },
-    //   };
-    // } else {
-    //   this.ctx.body = {
-    //     code: 500,
-    //     message: '访问微信登陆验证失败',
-    //     data,
-    //   };
-    // }
+    const result = await this.ctx.curl(`${config.wxlogin}?grant_type=${config.grant_type}&appid=${config.appid}&secret=${config.wxsecret}&js_code=${this.ctx.request.query.code}`, { dataType: 'json' });
+    const data = result.data;
+    // 生成token
+    if (data.openid) {
+      this.ctx.service.user.checkIfUserNotExistThenInsert({ openId: data.openid });
+      const token = await this.jwtSign({ openid: data.openid });
+      this.ctx.body = {
+        code: 0,
+        data: { token },
+      };
+    } else {
+      this.ctx.body = {
+        code: 500,
+        message: '访问微信登陆验证失败',
+        data,
+      };
+    }
   }
 }
 

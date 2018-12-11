@@ -1,15 +1,18 @@
 'use strict';
+const { baseApi, includeApi, excludeApi } = require('./config.router');
 
 module.exports = appInfo => {
   return {
     site: {
-      base: '/xcx/api/v1',
+      base: baseApi,
       secret: 'I#will#fuck#YOU',
       grant_type: 'authorization_code',
       appid: 'wx258169370c69ee4c',
       wxsecret: 'd9fcf46566519e01935a8c53225bb352',
       wxlogin: 'https://api.weixin.qq.com/sns/jscode2session',
     },
+    includeApi,
+    excludeApi,
     qiniu: {
       ak: 'w4cDcDH4OybaTsNVVp02bxdVWpHvVGCnTK2iWmbp', // Access Key
       sk: 'vHcoxx_SMTmWhWQXsJjY4Zbk7Vcux4xrMW602Im2', // Secret Key
@@ -25,10 +28,10 @@ module.exports = appInfo => {
     mysql: {
       client: {
         host: 'localhost',
-        port: '33060',
-        user: 'egg_dev',
-        password: 'egg123456',
-        database: 'egg',
+        port: '3306',
+        user: 'root',
+        password: 'dig?fuck',
+        database: 'campus-plus',
       },
     },
     security: {

@@ -7,9 +7,9 @@ module.exports = app => {
   const { router, controller, config } = app;
 
   // wx登陆验证
-  router.get(`${config.site.base}/wx/onlogin`, controller.auth.onlogin);
+  router.get(config.includeApi.auth.login, controller.auth.login);
 
   // 附件上传
-  router.get(`${config.site.base}/uptoken`, controller.upload.getUpToken);
+  router.get(config.includeApi.att.uptoken, controller.upload.getUpToken);
 
 };
