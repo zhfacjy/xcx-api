@@ -15,7 +15,7 @@ module.exports = {
       host: 'localhost',
       port: '3306',
       user: 'root',
-      password: 'dig?fuck',
+      password: 'fuck.646',
       database: 'campus-plus',
     },
   },
