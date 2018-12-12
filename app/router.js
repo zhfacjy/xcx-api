@@ -5,11 +5,12 @@
  */
 module.exports = app => {
   const { router, controller, config } = app;
+  const baseUrl = config.site.base;
 
   // wx登陆验证
-  router.get(config.includeApi.auth.login, controller.auth.login);
+  router.get(`${baseUrl}/auth/login`, controller.auth.login);
 
   // 附件上传
-  router.get(config.includeApi.att.uptoken, controller.upload.getUpToken);
+  router.get(`${baseUrl}/att/uptoken`, controller.upload.getUpToken);
 
 };

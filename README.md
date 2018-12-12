@@ -1,9 +1,5 @@
 # egg-app
 
-# 账号
-# 1660866966@qq.com
-# fuck.646
-
 ## QuickStart
 
 <!-- add docs here for user -->
