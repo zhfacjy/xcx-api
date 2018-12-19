@@ -6,17 +6,20 @@ const NAME_RANDOM_DATA = [ '宋江', '卢俊义', '吴用', '公孙胜', '关胜
 class UserService extends Service {
 
   async checkIfUserNotExistThenInsert({ openId, phone, userName } = {}) {
-    const exist = await this.exist(openId);
-    if (!exist) {
+    const existUser = await this.exist(openId);
+    console.log('find user', existUser);
+    if (!existUser) {
       const nameIndex = Math.floor(Math.random() * NAME_RANDOM_DATA.length);
-      userName = userName || NAME_RANDOM_DATA[ nameIndex ];
+      userName = userName || NAME_RANDOM_DATA[nameIndex];
       this.insert({ openId, phone, userName });
+      return { user_name: userName, open_id: openId };
     }
+    return { user_name: existUser.user_name, open_id: existUser.open_id };
   }
 
   async exist(openId) {
     const user = await this.app.mysql.get('users', { open_id: openId });
-    return user !== null;
+    return user;
   }
 
   async insert({ openId, phone, userName } = {}) {

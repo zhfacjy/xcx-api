@@ -28,8 +28,8 @@ class Auth extends Controller {
     const data = result.data;
     // 生成token
     if (data.openid) {
-      this.ctx.service.user.checkIfUserNotExistThenInsert({ openId: data.openid });
-      const token = await this.jwtSign({ openid: data.openid });
+      const existUser = await this.ctx.service.user.checkIfUserNotExistThenInsert({ openId: data.openid });
+      const token = await this.jwtSign(existUser);
       this.ctx.body = {
         code: 0,
         data: { token },

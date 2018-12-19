@@ -4,6 +4,7 @@ const Controller = require('egg').Controller;
 class Activity extends Controller {
   async getActivity() {
     const result = await this.ctx.service.activity.get(this.ctx.params.id);
+    console.log(result);
     this.ctx.body = {
       code: 0,
       data: result,
@@ -21,6 +22,7 @@ class Activity extends Controller {
   }
 
   async addActivity() {
+    this.ctx.request.body.create_by = this.ctx.state.user.open_id;
     const result = await this.ctx.service.activity.insert(this.ctx.request.body);
     this.ctx.body = {
       code: 0,
