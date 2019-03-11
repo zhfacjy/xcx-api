@@ -23,8 +23,8 @@ module.exports = appInfo => {
     // includeApi,
     // excludeApi,
     qiniu: {
-      ak: 'w4cDcDH4OybaTsNVVp02bxdVWpHvVGCnTK2iWmbp', // Access Key
-      sk: 'vHcoxx_SMTmWhWQXsJjY4Zbk7Vcux4xrMW602Im2', // Secret Key
+      ak: 'xxx', // Access Key
+      sk: 'xxx', // Secret Key
       zone: 'Zone_z2', // Zone_z0 华东, Zone_z1 华北, Zone_z2 华南, Zone_na0 北美
       bucket: 'camplus-plus',
     },
