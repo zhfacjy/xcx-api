@@ -9,8 +9,4 @@ module.exports = {
     enable: true,
     package: 'egg-joi',
   },
-  sequelize: {
-    enable: true,
-    package: 'egg-sequelize',
-  },
 };

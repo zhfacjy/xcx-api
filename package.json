@@ -8,10 +8,9 @@
     "egg-joi": "^1.0.6",
     "egg-mysql": "^3.0.0",
     "egg-scripts": "^2.10.0",
-    "egg-sequelize": "^4.3.1",
     "jsonwebtoken": "^8.4.0",
-    "mysql2": "^1.6.5",
-    "qiniu": "^7.2.1"
+    "qiniu": "^7.2.1",
+    "xml2js": "^0.4.19"
   },
   "devDependencies": {
     "autod": "^3.0.1",
@@ -27,8 +26,8 @@
     "node": ">=8.9.0"
   },
   "scripts": {
-    "start": "EGG_SERVER_ENV=prod && egg-scripts start --title=egg-server-egg-app",
-    "stop": "egg-scripts stop --title=egg-server-egg-app",
+    "start": "egg-scripts start --title=xcx-api",
+    "stop": "egg-scripts stop --title=xcx-api",
     "dev": "egg-bin dev",
     "debug": "egg-bin debug",
     "test": "npm run lint -- --fix && npm run test-local",

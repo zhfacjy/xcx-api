@@ -26,7 +26,7 @@ class Auth extends Controller {
     }), this.ctx.request.query);
     const loginUrl = `${config.wxlogin}?grant_type=${config.grant_type}
 &appid=${config.appid}&secret=${config.wxsecret}&js_code=${this.ctx.request.query.code}`;
-    const result = await this.ctx.curl(, { dataType: 'json' });
+    const result = await this.ctx.curl(loginUrl, { dataType: 'json' });
     const data = result.data;
     // 生成token
     if (data.openid) {

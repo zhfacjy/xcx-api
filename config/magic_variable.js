@@ -7,6 +7,7 @@ module.exports = {
     `${BASE_PREFFIX}/auth/login`,
     `${BASE_PREFFIX}/att/uptoken`,
     `${BASE_PREFFIX}/sys/version`,
+    `${BASE_PREFFIX}/order`,
   ],
   // 需要拦截的接口
   matchAops: [

@@ -12,11 +12,11 @@ module.exports = {
   },
   mysql: {
     client: {
-      host: '111.230.151.93',
-      port: '3306',
-      user: 'root',
-      password: 'fuck.646',
-      database: 'campus-plus',
+      host: 'localhost',
+      port: '33060',
+      user: 'egg_dev',
+      password: 'egg123456',
+      database: 'egg',
     },
   },
   security: {

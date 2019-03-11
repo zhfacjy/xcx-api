@@ -13,13 +13,7 @@ module.exports = app => {
   // 附件上传
   router.get(`${baseUrl}/att/uptoken`, controller.upload.getUpToken);
 
-  // 创建活动
-  router.post(`${baseUrl}/activity`, controller.activity.addActivity);
-
-  // 获取活动
-  router.get(`${baseUrl}/activities`, controller.activity.getActivities);
-
-  // 获取活动详情
-  router.get(`${baseUrl}/activity/:id`, controller.activity.getActivity);
+  // 测试减少库存
+  router.get(`${baseUrl}/order`, controller.order.addOrder);
 
 };
