@@ -10,12 +10,12 @@ module.exports = appInfo => {
     // 调用微信接口需要的参数
     wx: {
       grant_type: 'authorization_code', // 登录验证参数
-      appid: 'wx258169370c69ee4c', // 小程序ID
-      wxsecret: 'd9fcf46566519e01935a8c53225bb352', // 小程序的 app secret
+      appid: 'xxx', // 小程序ID
+      wxsecret: 'xxx', // 小程序的 app secret
       wxlogin: 'https://api.weixin.qq.com/sns/jscode2session', // 登录验证接口地址
-      mch_id: '1484553462', // 商户号
+      mch_id: 'xxx', // 商户号
       wxpay: 'https://api.mch.weixin.qq.com/pay/unifiedorder', // 支付接口地址
-      businessKey: 'aass5641581259865352478953214589', // 商家key
+      businessKey: 'xxx', // 商家key
       notifyUrl: 'https://5531708a.ngrok.io/wxpay/notify', // 通知地址
       trade_type: 'JSAPI', // 交易类型
       spbill_create_ip: '120.239.196.73', // 调用支付接口的ip
